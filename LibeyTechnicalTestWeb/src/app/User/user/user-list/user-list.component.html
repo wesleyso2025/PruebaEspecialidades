@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <h3>Listado de Usuarios</h3>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Seleccionar</th>
+          <th scope="col">Número de Documento</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido Paterno</th>
+          <th scope="col">Correo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            <input type="radio" [checked]="isSelected(user)" (change)="toggleSelection(user)">
+        </td>
+          <td>{{ user.documentNumber }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.fathersLastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="editUser()">Editar</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button class="btn btn-primary mt-3" (click)="addUser()">Agregar</button>
+</div>
+  
